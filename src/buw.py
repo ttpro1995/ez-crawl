@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 from lxml import etree
 import lxml.html
 from src.utils import *
@@ -79,7 +82,7 @@ class BUWrapper(object):
 
         time.sleep(0.5 * random.random())
         r = requests.get(url, headers=header)
-        page_html = r.content
+        page_html = r.text
         return page_html
 
     def get_simplified_path(self, node):
@@ -155,7 +158,8 @@ class BUWrapper(object):
 
 
 if __name__ == '__main__':
-    url = 'https://tiki.vn/day-sac-day-cap/c1823?src=mega-menu'
+    # url = 'https://tiki.vn/day-sac-day-cap/c1823?src=mega-menu'
+    url = "http://xuongmaythienphuc.vn"
     wrapper = BUWrapper(url)
     main_content = wrapper.get_main_content()
     # record_urls = list(set([Parser.get_text(record) for record in main_content]))
